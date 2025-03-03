@@ -1,0 +1,99 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{Notizen zur Klausurvorbereitung}
+\author{Bastian - br0sinski @ github}
+\date{\today}
+
+% Globaler Abstand für alle Listen
+\setlist[itemize]{left=0pt, labelsep=1em, labelwidth=1em, itemsep=0pt, parsep=0pt}
+\setlist[enumerate]{left=0pt, labelsep=1em, labelwidth=1em, itemsep=0pt, parsep=0pt}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Allgemeine Lernratschläge - Nutz nicht nur dieses Dokument!}
+\begin{itemize}
+    \item Nutze interaktive visuelle und didaktische Aufbereitungen.
+    \item Wiederhole die Inhalte aus den ersten Vorlesungsfolien.
+    \item Verwende das Moodle-Forum für Fragen und Diskussionen.
+\end{itemize}
+
+\pagebreak
+
+\section{Definitionen}
+\begin{itemize}
+    \item \textbf{Fast vollständiger binärer Baum (fast complete binary search tree)}:  
+    Ein binärer Suchbaum, der die folgenden Eigenschaften erfüllt:
+    \begin{itemize}
+        \item \textbf{Binärer Suchbaum (BST)}:
+        \begin{itemize}
+            \item Jeder Knoten hat höchstens zwei Kinder (linkes und rechtes Kind).
+            \item Alle Werte im linken Teilbaum eines Knotens sind kleiner als der Wert des Knotens.
+            \item Alle Werte im rechten Teilbaum eines Knotens sind größer als der Wert des Knotens.
+        \end{itemize}
+        \item \textbf{Fast vollständige Baumstruktur}:
+        \begin{itemize}
+            \item Alle Ebenen außer der letzten sind vollständig gefüllt.
+            \item In der letzten Ebene sind die Knoten so weit wie möglich nach links ausgerichtet.
+            \item Die Blätter befinden sich auf höchstens zwei aufeinanderfolgenden Ebenen.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Heap}:
+    Ein Heap ist ein spezieller binärer Baum, der die folgende Bedingung erfüllt:
+    \begin{itemize}
+        \item \textbf{Max-Heap}: Der Wert eines Knotens ist immer größer oder gleich den Werten seiner Kinder.
+        \item \textbf{Min-Heap}: Der Wert eines Knotens ist immer kleiner oder gleich den Werten seiner Kinder.
+    \end{itemize}
+    In einem Heap sind die Knoten so angeordnet, dass der größte oder kleinste Wert immer an der Wurzel steht. Ein Heap ist auch fast vollständig, wobei nur die letzte Ebene von oben nach unten und von links nach rechts gefüllt ist.
+    
+    \item \textbf{AVL-Baum (Adelson-Velsky und Landis Baum)}:
+    Ein AVL-Baum ist ein selbstbalancierender binärer Suchbaum, bei dem die Höhe der linken und rechten Teilbäume eines jeden Knotens sich um höchstens 1 unterscheidet. Das bedeutet:
+    \begin{itemize}
+        \item Die Balancefaktor jedes Knotens (Differenz der Höhen des linken und rechten Teilbaums) liegt zwischen -1 und 1.
+    \end{itemize}
+    Ein AVL-Baum garantiert, dass alle grundlegenden Operationen wie Suchen, Einfügen und Löschen in logarithmischer Zeit \( O(\log n) \) ausgeführt werden.
+\end{itemize}
+
+
+\section{Datenstrukturen und Algorithmen}
+\subsection{Komplexitätsanalyse}
+\begin{itemize}
+    \item Übersicht der Laufzeitkomplexitäten verschiedener Algorithmen.
+    \item Big-O-Notation für verschiedene Datenstrukturen.
+\end{itemize}
+
+\subsection{Sortieralgorithmen}
+\begin{itemize}
+    \item Heapsort: Zeitkomplexität und Eigenschaften.
+    \item Quicksort: Schrittweise Anwendung mit Beispiel.
+\end{itemize}
+
+\section{Beispielaufgaben}
+\subsection{Funktionsweise von Algorithmen}
+\begin{itemize}
+    \item Sortieren eines Arrays mit Heapsort.
+    \item Aufbau eines Heaps mit insert().
+\end{itemize}
+
+\subsection{Java-Implementierungen}
+\begin{itemize}
+    \item Beispielcode für die PriorityQueue mit AVL-Baum.
+    \item Algorithmus zur effizienten Suche nach gemeinsamen Elementen in zwei Arrays.
+\end{itemize}
+
+\section{Zusätzliche Anmerkungen}
+\begin{itemize}
+    \item Links zu relevanten Moodle-Diskussionen und Ressourcen.
+    \item Checkliste für die Klausurvorbereitung.
+\end{itemize}
+
+\end{document}
