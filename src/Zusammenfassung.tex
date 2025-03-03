@@ -4,20 +4,25 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{float}
+\usepackage{geometry}
+\geometry{a4paper, left=2cm, right=2cm, top=2cm, bottom=2cm}
 
 \title{Notizen zur Klausurvorbereitung}
 \author{Bastian - br0sinski @ github}
 \date{\today}
 
 % Globaler Abstand für alle Listen
-\setlist[itemize]{left=0pt, labelsep=1em, labelwidth=1em, itemsep=0pt, parsep=0pt}
-\setlist[enumerate]{left=0pt, labelsep=1em, labelwidth=1em, itemsep=0pt, parsep=0pt}
+\setlist[itemize]{left=0pt, labelsep=1em, labelwidth=1em, itemsep=0.5em, parsep=0.5em}
+\setlist[enumerate]{left=0pt, labelsep=1em, labelwidth=1em, itemsep=0.5em, parsep=0.5em}
 
 \begin{document}
 
 \maketitle
 
 \tableofcontents
+
+\pagebreak
 
 \section{Allgemeine Lernratschläge - Nutz nicht nur dieses Dokument!}
 \begin{itemize}
@@ -29,9 +34,9 @@
 \pagebreak
 
 \section{Definitionen}
+\subsection{Fast vollständiger binärer Baum (Fast Complete Binary Search Tree)}
 \begin{itemize}
-    \item \textbf{Fast vollständiger binärer Baum (fast complete binary search tree)}:  
-    Ein binärer Suchbaum, der die folgenden Eigenschaften erfüllt:
+    \item Ein binärer Suchbaum, der die folgenden Eigenschaften erfüllt:
     \begin{itemize}
         \item \textbf{Binärer Suchbaum (BST)}:
         \begin{itemize}
@@ -46,54 +51,123 @@
             \item Die Blätter befinden sich auf höchstens zwei aufeinanderfolgenden Ebenen.
         \end{itemize}
     \end{itemize}
+\end{itemize}
 
-    \item \textbf{Heap}:
-    Ein Heap ist ein spezieller binärer Baum, der die folgende Bedingung erfüllt:
+\vspace{1em}
+
+\subsection{Heap}
+\begin{itemize}
+    \item Ein Heap ist ein spezieller binärer Baum, der die folgende Bedingung erfüllt:
     \begin{itemize}
         \item \textbf{Max-Heap}: Der Wert eines Knotens ist immer größer oder gleich den Werten seiner Kinder.
         \item \textbf{Min-Heap}: Der Wert eines Knotens ist immer kleiner oder gleich den Werten seiner Kinder.
     \end{itemize}
-    In einem Heap sind die Knoten so angeordnet, dass der größte oder kleinste Wert immer an der Wurzel steht. Ein Heap ist auch fast vollständig, wobei nur die letzte Ebene von oben nach unten und von links nach rechts gefüllt ist.
-    
-    \item \textbf{AVL-Baum (Adelson-Velsky und Landis Baum)}:
-    Ein AVL-Baum ist ein selbstbalancierender binärer Suchbaum, bei dem die Höhe der linken und rechten Teilbäume eines jeden Knotens sich um höchstens 1 unterscheidet. Das bedeutet:
-    \begin{itemize}
-        \item Die Balancefaktor jedes Knotens (Differenz der Höhen des linken und rechten Teilbaums) liegt zwischen -1 und 1.
-    \end{itemize}
-    Ein AVL-Baum garantiert, dass alle grundlegenden Operationen wie Suchen, Einfügen und Löschen in logarithmischer Zeit \( O(\log n) \) ausgeführt werden.
+    \item In einem Heap sind die Knoten so angeordnet, dass der größte oder kleinste Wert immer an der Wurzel steht.
+    \item Ein Heap ist fast vollständig, wobei nur die letzte Ebene von oben nach unten und von links nach rechts gefüllt ist.
 \end{itemize}
 
+\vspace{1em} 
+
+\subsection{AVL-Baum (Adelson-Velsky und Landis Baum)}
+\begin{itemize}
+    \item Ein AVL-Baum ist ein selbstbalancierender binärer Suchbaum, bei dem die Höhe der linken und rechten Teilbäume eines jeden Knotens sich um höchstens 1 unterscheidet.
+    \item \textbf{Balancefaktor}: Die Differenz der Höhen des linken und rechten Teilbaums liegt zwischen -1 und 1.
+    \item \textbf{Laufzeit}: Alle grundlegenden Operationen wie Suchen, Einfügen und Löschen werden in logarithmischer Zeit \( O(\log n) \) ausgeführt.
+\end{itemize}
+
+\vspace{1em}
 
 \section{Datenstrukturen und Algorithmen}
 \subsection{Komplexitätsanalyse}
 \begin{itemize}
-    \item Übersicht der Laufzeitkomplexitäten verschiedener Algorithmen.
-    \item Big-O-Notation für verschiedene Datenstrukturen.
+    \item \textbf{Big-O-Notation}: Beschreibt die obere Grenze der Laufzeit eines Algorithmus.
+    \item \textbf{Funktionsklassen}:
+    \begin{itemize}
+        \item \( O(1) \): Konstante Laufzeit (z.B. Zugriff auf ein Array-Element).
+        \item \( O(\log n) \): Logarithmische Laufzeit (z.B. binäre Suche).
+        \item \( O(n) \): Lineare Laufzeit (z.B. lineare Suche).
+        \item \( O(n^2) \): Quadratische Laufzeit (z.B. Bubble Sort).
+        \item \( O(2^n) \): Exponentielle Laufzeit (z.B. Lösung des Problems der Türme von Hanoi).
+    \end{itemize}
+    \item \textbf{Komplexitätsklassen}:
+    \begin{itemize}
+        \item \textbf{P}: Probleme, die in polynomieller Zeit gelöst werden können.
+        \item \textbf{NP}: Probleme, für die keine polynomielle Lösung bekannt ist.
+    \end{itemize}
 \end{itemize}
+
+\vspace{1em} 
 
 \subsection{Sortieralgorithmen}
 \begin{itemize}
-    \item Heapsort: Zeitkomplexität und Eigenschaften.
-    \item Quicksort: Schrittweise Anwendung mit Beispiel.
+    \item \textbf{Heapsort}:
+    \begin{itemize}
+        \item Zeitkomplexität: \( O(n \log n) \).
+        \item Eigenschaften: In-Place-Sortierung, instabil.
+    \end{itemize}
+    \item \textbf{Quicksort}:
+    \begin{itemize}
+        \item Zeitkomplexität: \( O(n \log n) \) im Durchschnitt, \( O(n^2) \) im schlimmsten Fall.
+        \item Schrittweise Anwendung: Wähle ein Pivot-Element, teile das Array in zwei Teile und sortiere rekursiv.
+    \end{itemize}
 \end{itemize}
+
+\vspace{1em}
 
 \section{Beispielaufgaben}
 \subsection{Funktionsweise von Algorithmen}
 \begin{itemize}
-    \item Sortieren eines Arrays mit Heapsort.
-    \item Aufbau eines Heaps mit insert().
+    \item \textbf{Sortieren eines Arrays mit Heapsort}:
+    \begin{itemize}
+        \item Beispiel: Sortiere das Array \([3, 1, 4, 1, 5, 9, 2, 6]\) mit Heapsort.
+    \end{itemize}
+    \item \textbf{Aufbau eines Heaps mit insert()}:
+    \begin{itemize}
+        \item Beispiel: Füge die Elemente \([3, 1, 4, 1, 5]\) in einen Max-Heap ein.
+    \end{itemize}
+    \item \textbf{Binäre Suche}:
+    \begin{itemize}
+        \item \textbf{Laufzeit}: \( O(\log n) \).
+        \item \textbf{Beispiel}: Suche nach dem Element 5 im sortierten Array \([1, 2, 3, 4, 5, 6, 7, 8, 9]\).
+    \end{itemize}
 \end{itemize}
+
+\vspace{1em}
 
 \subsection{Java-Implementierungen}
 \begin{itemize}
-    \item Beispielcode für die PriorityQueue mit AVL-Baum.
-    \item Algorithmus zur effizienten Suche nach gemeinsamen Elementen in zwei Arrays.
+    \item \textbf{PriorityQueue mit AVL-Baum}:
+    \begin{itemize}
+        \item Beispielcode für die Implementierung einer PriorityQueue mit einem AVL-Baum.
+    \end{itemize}
+    \item \textbf{Effiziente Suche nach gemeinsamen Elementen in zwei Arrays}:
+    \begin{itemize}
+        \item Algorithmus zur Suche nach gemeinsamen Elementen in zwei sortierten Arrays.
+    \end{itemize}
+    \item \textbf{Rekursion}:
+    \begin{itemize}
+        \item \textbf{Beispiele}:
+        \begin{itemize}
+            \item Fakultät: \( n! = n \times (n-1)! \) mit \( 1! = 1 \).
+            \item Türme von Hanoi: Ein klassisches Problem, das rekursiv gelöst wird.
+            \item Binäre Suche: Ein Suchalgorithmus, der rekursiv das Suchintervall halbiert.
+        \end{itemize}
+        \item \textbf{Rekursionsgleichung}: \( T(n) = T(n-1) + 1 \) für die Fakultät.
+        \item \textbf{Rekursionsstack}: Lokale Variablen werden in einem Stack verwaltet, der nach dem LIFO-Prinzip funktioniert.
+    \end{itemize}
 \end{itemize}
+
+\vspace{1em} 
 
 \section{Zusätzliche Anmerkungen}
 \begin{itemize}
-    \item Links zu relevanten Moodle-Diskussionen und Ressourcen.
-    \item Checkliste für die Klausurvorbereitung.
+    \item \textbf{Links zu relevanten Moodle-Diskussionen und Ressourcen}:
+    \item \textbf{Checkliste für die Klausurvorbereitung}:
+    \begin{itemize}
+        \item Wiederhole alle Definitionen und Algorithmen.
+        \item Löse Beispielaufgaben aus den Vorlesungen und Übungen.
+        \item Nutze das Moodle-Forum für Fragen und Diskussionen.
+    \end{itemize}
 \end{itemize}
 
 \end{document}
